@@ -10,7 +10,6 @@ import Button from './Button/Button';
 const App = () => {
   const [query, setQuery] = useState('');
   const [isLoading, setLoading] = useState(false);
-  const [isError, setError] = useState(false);
   const [isShowModal, setShowModal] = useState(false);
   const [isShowButton, setShowButton] = useState(false);
   const [page, setPage] = useState(1);
@@ -35,8 +34,8 @@ const App = () => {
 
         setPictures(prevState => [...prevState, ...hits]);
         setShowButton(page < Math.ceil(totalHits / hits.length));
-      } catch {
-        setError(true);
+      } catch (error) {
+        console.log(error);
       } finally {
         setLoading(false);
       }
