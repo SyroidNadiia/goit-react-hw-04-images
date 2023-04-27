@@ -30,7 +30,7 @@ const App = () => {
         const { totalHits, hits } = await fetchAsync(query, page);
 
         if (hits.length === 0) {
-          Notiflix.Notify.failure('Sorry.There are no images ...');
+          Notiflix.Notify.failure('Sorry. There are no images ...');
         }
 
         setPictures(prevState => [...prevState, ...hits]);
